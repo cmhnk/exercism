@@ -3,8 +3,12 @@ class Gigasecond
   GIGASECOND = 1_000_000_000
 
   def self.from(inception)
-    time_in_sec = inception.to_i 
-    answer = time_in_sec + GIGASECOND
-    Time.at(answer)
+    born_sec = inception.to_i 
+    age_is_gigasecond = born_sec + GIGASECOND
+    Time.at(age_is_gigasecond)
   end
+end
+
+module BookKeeping
+  VERSION = 6
 end
