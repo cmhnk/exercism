@@ -9,10 +9,15 @@ class Complement
 
   def self.of_dna(nucleotide)
     of_single_nucleotide(nucleotide) unless nucleotide.size > 1
-    nucleotide.chars.map {|char| of_single_nucleotide(char)}.join
+    transcription = nucleotide.chars.map {|char| of_single_nucleotide(char)}.join
+    transcription.size == nucleotide.chars.size ? transcription : ''
   end
 
   def self.of_single_nucleotide(nucleotide)
-    COMPLEMENTS.fetch(nucleotide.to_sym, '')
+    COMPLEMENTS[nucleotide.to_sym]
   end
+end
+
+module BookKeeping
+  VERSION = 4
 end
